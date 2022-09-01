@@ -14,6 +14,10 @@ import { HeaderComponent } from './common/header/header.component';
 import { NgZorroModule } from './ng-zorro-module';
 import { MainTemplateComponent } from './template/main-template/main-template.component';
 import { AuthService } from './auth/auth.service';
+import { BooksComponent } from './resources/books/books.component';
+import { HousesComponent } from './resources/houses/houses.component';
+import { CharactersComponent } from './resources/characters/characters.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 const icons: IconDefinition[] = [MenuOutline];
 
@@ -24,6 +28,10 @@ const icons: IconDefinition[] = [MenuOutline];
     HomeComponent,
     HeaderComponent,
     MainTemplateComponent,
+    BooksComponent,
+    HousesComponent,
+    CharactersComponent,
+    ResourcesComponent,
   ],
   imports: [
     BrowserModule,
