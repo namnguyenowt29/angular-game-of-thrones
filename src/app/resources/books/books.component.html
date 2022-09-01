@@ -1,1 +1,37 @@
-<p>books works!</p>
+<form
+  [formGroup]="dateForm"
+  (ngSubmit)="onSubmitDate()"
+  class="date-filter"
+  style="text-align: center"
+>
+  <nz-date-picker nzMode="date" formControlName="from"></nz-date-picker>
+  <nz-date-picker nzMode="date" formControlName="to"></nz-date-picker>
+  <button type="submit" nz-button nzType="link">Find books</button>
+</form>
+
+<nz-table #basicTable [nzData]="books" [nzShowPagination]="false">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Authors</th>
+      <th>Number of Pages</th>
+      <th>Released</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.authors?.join('') }}</td>
+      <td>{{ data.numberOfPages }}</td>
+      <td>{{ data.released | date: 'medium' }}</td>
+    </tr>
+  </tbody>
+</nz-table>
+<nz-pagination
+  class="pagination-center"
+  [nzPageIndex]="pageIndex"
+  [nzTotal]="bookLastPage * 10"
+  [nzShowSizeChanger]="false"
+  [nzPageSize]="10"
+  (nzPageIndexChange)="handleIndexPageChange($event)"
+></nz-pagination>

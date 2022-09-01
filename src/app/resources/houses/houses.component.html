@@ -1,1 +1,76 @@
-<p>houses works!</p>
+<button
+  nz-button
+  title="open character's filter box"
+  (click)="showModal()"
+  nzType="primary"
+  class="filter-center"
+>
+  OPEN FILTER BOX
+</button>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Characters filter"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleSubmitFilter()"
+>
+  <ng-container *nzModalContent>
+    <form
+      (ngSubmit)="handleSubmitFilter()"
+      class="filter-form"
+      [formGroup]="houseFilterForm"
+    >
+      <div
+        class="filter-item"
+        *ngFor="let textFilter of textFilters"
+        formGroupName="houseTextFilter"
+      >
+        <label nz-checkbox (change)="handleFieldChange(textFilter)">{{
+          textFilter.title
+        }}</label>
+        <input
+          *ngIf="textFilter.value"
+          type="text"
+          nz-input
+          [formControlName]="textFilter.title"
+        />
+      </div>
+      <!--  -->
+      <div
+        class="filter-item"
+        *ngFor="let checkboxFilter of checkboxFilters"
+        formGroupName="houseCheckboxFilter"
+      >
+        <label [formControlName]="checkboxFilter.title" nz-checkbox>{{
+          checkboxFilter.title
+        }}</label>
+      </div>
+    </form>
+  </ng-container>
+</nz-modal>
+
+<nz-table #basicTable [nzData]="houses" [nzShowPagination]="false">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Coat Of Arms</th>
+      <th>Region</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.coatOfArms }}</td>
+      <td>{{ data.region }}</td>
+      <td>{{ data.titles?.join(' - ') }}</td>
+    </tr>
+  </tbody>
+</nz-table>
+<nz-pagination
+  class="pagination-center"
+  [nzPageIndex]="pageIndex"
+  [nzTotal]="houseLastPage * 10"
+  [nzShowSizeChanger]="false"
+  [nzPageSize]="10"
+  (nzPageIndexChange)="handleIndexPageChange($event)"
+></nz-pagination>

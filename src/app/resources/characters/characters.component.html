@@ -1,1 +1,72 @@
-<p>characters works!</p>
+<button
+  nz-button
+  title="open character's filter box"
+  (click)="showModal()"
+  nzType="primary"
+  class="filter-center"
+>
+  OPEN FILTER BOX
+</button>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Characters filter"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleSubmitFilter()"
+>
+  <ng-container *nzModalContent>
+    <form
+      (ngSubmit)="handleSubmitFilter()"
+      class="filter-form"
+      [formGroup]="characterFilterForm"
+    >
+      <div
+        class="filter-item"
+        *ngFor="let filter of filters"
+        formGroupName="characterTextFilters"
+      >
+        <label nz-checkbox (change)="handleFieldChange(filter)">{{
+          filter.title
+        }}</label>
+        <input
+          *ngIf="filter.value"
+          type="text"
+          nz-input
+          [formControlName]="filter.title"
+        />
+      </div>
+      <label nz-checkbox formControlName="isAlive">Is alive</label>
+    </form>
+  </ng-container>
+</nz-modal>
+
+<nz-table #basicTable [nzData]="characters" [nzShowPagination]="false">
+  <thead>
+    <tr>
+      <th>Aliases</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Culture</th>
+      <th>Born</th>
+      <th>Died</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.aliases?.join(',') }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.gender }}</td>
+      <td>{{ data.culture }}</td>
+      <td>{{ data.born }}</td>
+      <td>{{ data.died }}</td>
+    </tr>
+  </tbody>
+</nz-table>
+<nz-pagination
+  class="pagination-center"
+  [nzPageIndex]="pageIndex"
+  [nzTotal]="characterLastPage * 10"
+  [nzShowSizeChanger]="false"
+  [nzPageSize]="10"
+  (nzPageIndexChange)="handleIndexPageChange($event)"
+></nz-pagination>

@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { IconDefinition } from '@ant-design/icons-angular';
-import { MenuOutline } from '@ant-design/icons-angular/icons';
+import { FilterOutline, MenuOutline } from '@ant-design/icons-angular/icons';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './common/header/header.component';
 import { NgZorroModule } from './ng-zorro-module';
@@ -18,8 +18,16 @@ import { BooksComponent } from './resources/books/books.component';
 import { HousesComponent } from './resources/houses/houses.component';
 import { CharactersComponent } from './resources/characters/characters.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './common/api.service';
 
-const icons: IconDefinition[] = [MenuOutline];
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+
+registerLocaleData(en);
+
+const icons: IconDefinition[] = [MenuOutline, FilterOutline];
 
 @NgModule({
   declarations: [
@@ -39,9 +47,11 @@ const icons: IconDefinition[] = [MenuOutline];
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgZorroModule,
+    HttpClientModule,
+    FormsModule,
     NzIconModule.forRoot(icons),
   ],
-  providers: [AuthService],
+  providers: [AuthService, ApiService, { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

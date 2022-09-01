@@ -1,4 +1,4 @@
-export interface CharacterModel {
+export interface HouseModel {
   url?: string;
   name?: string;
   region?: string;

@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     if (this.loginForm.valid) {
-      console.log('submit', this.loginForm.value);
       this.authService.isLogin = true;
       this.router.navigate(['/overview']);
     } else {
