@@ -1,0 +1,32 @@
+.logo {
+  height: 40px;
+  width: 120px;
+  cursor: pointer;
+}
+
+.app-header {
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 3px 1px rgb(0 0 0 / 2%), 0 4px 8px 1px rgb(0 0 0 / 8%);
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  @media (max-width: 992px) {
+    padding: 0 2em;
+  }
+  & ul {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+.mobile-menu {
+  cursor: pointer;
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}

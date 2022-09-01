@@ -1,0 +1,35 @@
+<nz-header class="app-header">
+  <div class="logo" routerLink="/overview">
+    <img
+      src="../../../assets/images/openwt-logo-red-black.svg"
+      alt="openwt-log"
+    />
+  </div>
+  <ul nz-menu [nzMode]="'horizontal'">
+    <li nz-menu-item>Books</li>
+    <li nz-menu-item>Characters</li>
+    <li nz-menu-item>Houses</li>
+    <li nz-menu-item>
+      <a routerLink="/login"> Log in </a>
+    </li>
+  </ul>
+  <div class="mobile-menu" (click)="open()">
+    <span nz-icon nzType="menu" nzTheme="outline"></span>
+    <nz-drawer
+      (nzOnClose)="close()"
+      [nzCloseIcon]="'close'"
+      [nzVisible]="visible"
+      nzPlacement="bottom"
+      nzTitle="Menu"
+    >
+      <ul nz-menu [nzMode]="'vertical'" *nzDrawerContent>
+        <li nz-menu-item>Books</li>
+        <li nz-menu-item>Characters</li>
+        <li nz-menu-item>Houses</li>
+        <li nz-menu-item>
+          <a routerLink="/login"> Log in </a>
+        </li>
+      </ul>
+    </nz-drawer>
+  </div>
+</nz-header>

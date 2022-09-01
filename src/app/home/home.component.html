@@ -1,1 +1,59 @@
-<button nz-button nzType="primary">Home Button</button>
+<app-main-template>
+  <div class="overview-container">
+    <h1 nz-typography>Choose your resources</h1>
+  </div>
+  <div nz-row class="resources-list">
+    <div class="resources-item" nz-col nzMd="24" nzSm="24" [nzLg]="{ span: 7 }">
+      <img
+        class="resource-thumbnail"
+        src="../../assets/images/book.jpg"
+        alt="book"
+        routerLink="/books"
+      />
+      <div class="resource-description">
+        <p nz-typography>
+          Five royal houses will hear the call to compete in the Trial for the
+          dragon throne. A liar, a soldier, a servant, a thief, and a murderer
+          will answer it. Who will win? Three Dark Crowns meets The Breakfast
+          Club with DRAGONS...
+        </p>
+      </div>
+    </div>
+    <div class="resources-item" nz-col nzMd="24" nzSm="24" [nzLg]="{ span: 7 }">
+      <img
+        class="resource-thumbnail"
+        src="../../assets/images/house.jpg"
+        alt="house"
+        routerLink="/houses"
+      />
+      <div class="resource-description">
+        <p nz-typography>
+          The Great Houses are the most powerful of the noble houses of the
+          Seven Kingdoms. They exercise immense authority and power over their
+          vassals and territories and are answerable only to the King of the
+          Andals and the First Men, with the exception of House Stark, which
+          rules over an independent kingdom...
+        </p>
+      </div>
+    </div>
+    <div class="resources-item" nz-col nzMd="24" nzSm="24" [nzLg]="{ span: 7 }">
+      <img
+        class="resource-thumbnail"
+        src="../../assets/images/character.jpg"
+        alt="character"
+        routerLink="/characters"
+      />
+      <div class="resource-description">
+        <p nz-typography>
+          The characters from the medieval fantasy television series Game of
+          Thrones are based on their respective counterparts from author George
+          R. R. Martin's A Song of Ice and Fire series of novels. Set in a
+          fictional universe that has been referred to so far as "The Known
+          World", the series follows a civil war for the Iron Throne of the
+          continent of Westeros, fought between the rival royal and noble
+          families and their respective supporters...
+        </p>
+      </div>
+    </div>
+  </div>
+</app-main-template>
