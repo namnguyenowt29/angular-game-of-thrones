@@ -10,11 +10,7 @@ export class HeaderComponent implements OnInit {
   constructor() {}
   ngOnInit(): void {}
 
-  open(): void {
-    this.visible = true;
-  }
-
-  close(): void {
-    this.visible = false;
+  onClickMenu(): void {
+    this.visible = !this.visible;
   }
 }

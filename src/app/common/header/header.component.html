@@ -5,7 +5,12 @@
       alt="openwt-log"
     />
   </div>
-  <ul nz-menu [nzMode]="'horizontal'">
+  <ul
+    class="menu-header active"
+    [ngClass]="{ active: visible }"
+    nz-menu
+    [nzMode]="'horizontal'"
+  >
     <li nz-menu-item>Books</li>
     <li nz-menu-item>Characters</li>
     <li nz-menu-item>Houses</li>
@@ -13,23 +18,11 @@
       <a routerLink="/login"> Log in </a>
     </li>
   </ul>
-  <div class="mobile-menu" (click)="open()">
-    <span nz-icon nzType="menu" nzTheme="outline"></span>
-    <nz-drawer
-      (nzOnClose)="close()"
-      [nzCloseIcon]="'close'"
-      [nzVisible]="visible"
-      nzPlacement="bottom"
-      nzTitle="Menu"
-    >
-      <ul nz-menu [nzMode]="'vertical'" *nzDrawerContent>
-        <li nz-menu-item>Books</li>
-        <li nz-menu-item>Characters</li>
-        <li nz-menu-item>Houses</li>
-        <li nz-menu-item>
-          <a routerLink="/login"> Log in </a>
-        </li>
-      </ul>
-    </nz-drawer>
+  <div class="mobile-menu" (click)="onClickMenu()">
+    <span
+      nz-icon
+      [nzType]="!visible ? 'menu' : 'close'"
+      nzTheme="outline"
+    ></span>
   </div>
 </nz-header>

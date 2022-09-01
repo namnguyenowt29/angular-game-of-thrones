@@ -4,7 +4,6 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 @NgModule({
@@ -14,7 +13,6 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
     NzFormModule,
     NzLayoutModule,
     NzMenuModule,
-    NzDrawerModule,
     NzTypographyModule,
   ],
 })
