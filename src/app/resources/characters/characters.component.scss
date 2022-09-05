@@ -1,0 +1,29 @@
+nz-table {
+  border: 1px solid gainsboro;
+}
+
+.pagination-center {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  & .filter-item {
+    display: flex;
+    margin-bottom: 1.5em;
+    align-items: center;
+    & > .ant-checkbox {
+      cursor: unset;
+    }
+    & nz-select {
+      flex: 50%;
+    }
+  }
+}
+
+.filter-center {
+  display: flex;
+  margin: 1em auto;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   visible = false;
-  constructor() {}
-  ngOnInit(): void {}
-
-  open(): void {
-    this.visible = true;
+  constructor(private router: Router) {}
+  ngOnInit(): void {
+    this.router.events.subscribe(() => {
+      this.visible = false;
+    });
   }
 
-  close(): void {
-    this.visible = false;
+  onClickMenu(): void {
+    this.visible = !this.visible;
   }
 }
