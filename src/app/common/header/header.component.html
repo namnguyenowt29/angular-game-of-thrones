@@ -10,10 +10,14 @@
     [ngClass]="{ active: visible }"
     nz-menu
     [nzMode]="'horizontal'"
-    (click)="handleSearchBox()"
   >
     <li nz-menu-item>
-      <button nz-button nzType="dashed" nzShape="circle">
+      <button
+        nz-button
+        nzType="dashed"
+        nzShape="circle"
+        (click)="handleSearchBox()"
+      >
         <span nz-icon nzType="search"></span>
       </button>
     </li>
