@@ -1,8 +1,6 @@
-import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-header',
@@ -15,15 +13,14 @@ export class HeaderComponent implements OnInit {
   searchForm!: FormGroup;
   resources = ['books', 'houses', 'characters'];
 
-  constructor(private router: Router, private apiService: ApiService) {}
+  constructor(private router: Router) {}
   ngOnInit(): void {
     this.router.events.subscribe(() => {
       this.visible = false;
     });
-
     this.searchForm = new FormGroup({
-      resourceName: new FormControl(null),
-      name: new FormControl(null),
+      resourceName: new FormControl(null, [Validators.required]),
+      name: new FormControl(''),
     });
   }
 
@@ -38,18 +35,23 @@ export class HeaderComponent implements OnInit {
     this.isSearchModalVisible = false;
   }
   handleSubmitSearch() {
-    let searchParams = new HttpParams();
-    this.isSearchModalVisible = false;
-    let formValues = Object(this.searchForm.value);
+    let formValues = Object.assign({}, this.searchForm.value);
 
-    searchParams = searchParams.append('name', formValues['name']);
-
-    this.apiService
-      .fetchResource('/' + formValues['resourceName'], searchParams)
-      .subscribe({
-        next: data => console.log(data),
-        error: err => console.log(err),
+    if (this.searchForm.valid) {
+      this.router.navigate(['/result'], {
+        queryParams: {
+          type: formValues['resourceName'],
+          name: formValues['name'],
+        },
       });
-    this.searchForm.reset();
+      this.isSearchModalVisible = false;
+    } else {
+      Object.values(this.searchForm.controls).forEach(control => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
+    }
   }
 }

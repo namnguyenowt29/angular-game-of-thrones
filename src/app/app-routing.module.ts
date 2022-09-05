@@ -6,11 +6,13 @@ import { BooksComponent } from './resources/books/books.component';
 import { CharactersComponent } from './resources/characters/characters.component';
 import { HousesComponent } from './resources/houses/houses.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { SearchResultComponent } from './resources/search-result/search-result.component';
 
 const routes: Routes = [
   { path: 'overview', component: HomeComponent },
   { path: '', redirectTo: 'overview', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'result', component: SearchResultComponent },
   {
     path: '',
     component: ResourcesComponent,
@@ -29,7 +31,6 @@ const routes: Routes = [
       },
     ],
   },
-
   { path: '**', redirectTo: 'overview' },
 ];
 
