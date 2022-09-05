@@ -10,7 +10,13 @@
     [ngClass]="{ active: visible }"
     nz-menu
     [nzMode]="'horizontal'"
+    (click)="handleSearchBox()"
   >
+    <li nz-menu-item>
+      <button nz-button nzType="dashed" nzShape="circle">
+        <span nz-icon nzType="search"></span>
+      </button>
+    </li>
     <li nz-menu-item routerLinkActive="ant-menu-item-selected">
       <a [routerLink]="['/', 'books']">Books</a>
     </li>
@@ -32,3 +38,26 @@
     ></span>
   </div>
 </nz-header>
+<!-- search modal -->
+<nz-modal
+  [(nzVisible)]="isSearchModalVisible"
+  nzTitle="Find any resource"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleSubmitSearch()"
+>
+  <ng-container *nzModalContent>
+    <form class="search-element" [formGroup]="searchForm">
+      <nz-select
+        formControlName="resourceName"
+        nzPlaceHolder="Select a resource"
+      >
+        <nz-option
+          *ngFor="let resource of resources"
+          [nzValue]="resource"
+          [nzLabel]="resource | titlecase"
+        ></nz-option>
+      </nz-select>
+      <input type="text" nz-input formControlName="name" />
+    </form>
+  </ng-container>
+</nz-modal>

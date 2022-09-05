@@ -44,3 +44,10 @@
 .active {
   display: block !important;
 }
+
+.search-element {
+  display: flex;
+  & > nz-select {
+    flex: 50%;
+  }
+}
