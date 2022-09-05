@@ -24,6 +24,10 @@ import { ApiService } from './common/api.service';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+import { SearchResultComponent } from './resources/search-result/search-result.component';
+import { CharacterListComponent } from './common/character-list/character-list.component';
+import { BookListComponent } from './common/book-list/book-list.component';
+import { HouseListComponent } from './common/house-list/house-list.component';
 
 registerLocaleData(en);
 
@@ -40,6 +44,10 @@ const icons: IconDefinition[] = [MenuOutline, FilterOutline];
     HousesComponent,
     CharactersComponent,
     ResourcesComponent,
+    SearchResultComponent,
+    CharacterListComponent,
+    BookListComponent,
+    HouseListComponent,
   ],
   imports: [
     BrowserModule,

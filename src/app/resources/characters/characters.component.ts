@@ -4,7 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/common/api.service';
 import { characterFilters, CHARACTER_LAST_PAGE } from 'src/assets/constants';
-import { CharacterModel } from '../models/chracter.model';
+import { CharacterModel } from '../models/character.model';
 
 @Component({
   selector: 'app-characters',

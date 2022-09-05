@@ -1,0 +1,12 @@
+<div class="character-container">
+  <nz-card nzTitle="Character info" *ngFor="let character of characters">
+    <p><b>Aliases: </b> {{ character.aliases?.join(' - ') }}</p>
+    <p><b>Name: </b>{{ character.name }}</p>
+    <p><b>Gender: </b> {{ character.gender }}</p>
+    <p><b>Culture: </b> {{ character.culture }}</p>
+    <p><b>Born: </b> {{ character.born }}</p>
+    <p><b>Played by: </b> {{ character.playedBy?.join(' - ') }}</p>
+    <p><b>Titles: </b>{{ character.titles?.join(' - ') }}</p>
+    <p><b>TvSeries: </b>{{ character.tvSeries?.join(' - ') }}</p>
+  </nz-card>
+</div>
