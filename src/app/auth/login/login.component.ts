@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   submitForm(): void {
     if (this.loginForm.valid) {
       this.authService.isLogin = true;
-      this.router.navigate(['/overview']);
+      this.router.navigate(['/']);
     } else {
       Object.values(this.loginForm.controls).forEach(control => {
         if (control.invalid) {
