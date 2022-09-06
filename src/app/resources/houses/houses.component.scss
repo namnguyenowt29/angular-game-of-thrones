@@ -14,5 +14,7 @@ nz-table {
 
 .filter-item {
   display: flex;
-  align-items: center;
+  & > label {
+    flex-basis: 40%;
+  }
 }

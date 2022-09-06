@@ -1,9 +1,4 @@
-<form
-  [formGroup]="dateForm"
-  (ngSubmit)="onSubmitDate()"
-  class="date-filter"
-  style="text-align: center"
->
+<form [formGroup]="dateForm" (ngSubmit)="onSubmitDate()" class="date-filter">
   <nz-date-picker nzMode="date" formControlName="from"></nz-date-picker>
   <nz-date-picker nzMode="date" formControlName="to"></nz-date-picker>
   <button type="submit" nz-button nzType="link">Find books</button>

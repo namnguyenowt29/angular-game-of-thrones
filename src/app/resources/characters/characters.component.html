@@ -25,9 +25,10 @@
         *ngFor="let filter of filters"
         formGroupName="characterTextFilters"
       >
-        <label nz-checkbox (change)="handleFieldChange(filter)">{{
-          filter.title
-        }}</label>
+        <label>
+          <input type="checkbox" (change)="handleFieldChange(filter)" />
+          {{ filter.title }}</label
+        >
         <input
           *ngIf="filter.value"
           type="text"
@@ -35,7 +36,10 @@
           [formControlName]="filter.title"
         />
       </div>
-      <label nz-checkbox formControlName="isAlive">Is alive</label>
+      <label>
+        <input type="checkbox" formControlName="isAlive" />
+        Is alive</label
+      >
     </form>
   </ng-container>
 </nz-modal>

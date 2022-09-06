@@ -13,12 +13,8 @@ nz-table {
   & .filter-item {
     display: flex;
     margin-bottom: 1.5em;
-    align-items: center;
-    & > .ant-checkbox {
-      cursor: unset;
-    }
-    & nz-select {
-      flex: 50%;
+    & > label {
+      flex-basis: 20%;
     }
   }
 }
