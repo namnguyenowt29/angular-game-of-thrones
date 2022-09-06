@@ -1,6 +1,8 @@
 nz-table {
   border: 1px solid gainsboro;
-  margin-top: 5em;
+  & .table-body-item {
+    cursor: pointer;
+  }
 }
 
 .pagination-center {
@@ -9,6 +11,6 @@ nz-table {
 }
 
 .date-filter {
-  margin-top: 2em;
+  margin: 2em 0em;
   text-align: center;
 }

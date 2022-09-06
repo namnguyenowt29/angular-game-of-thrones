@@ -28,6 +28,10 @@ import { BookListComponent } from './resources/search-result/book-list/book-list
 import { CharacterListComponent } from './resources/search-result/character-list/character-list.component';
 import { HouseListComponent } from './resources/search-result/house-list/house-list.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { DetailComponent } from './resources/detail/detail.component';
+import { BookDetailComponent } from './resources/detail/book-detail/book-detail.component';
+import { CharacterDetailComponent } from './resources/detail/character-detail/character-detail.component';
+import { HouseDetailComponent } from './resources/detail/house-detail/house-detail.component';
 
 registerLocaleData(en);
 
@@ -48,6 +52,10 @@ const icons: IconDefinition[] = [MenuOutline, FilterOutline];
     BookListComponent,
     HouseListComponent,
     ResourcesComponent,
+    DetailComponent,
+    BookDetailComponent,
+    HouseDetailComponent,
+    CharacterDetailComponent,
   ],
   imports: [
     BrowserModule,

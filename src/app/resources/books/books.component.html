@@ -14,7 +14,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of basicTable.data">
+    <tr
+      class="table-body-item"
+      *ngFor="let data of basicTable.data"
+      (click)="onClickBook(data.url)"
+    >
       <td>{{ data.name }}</td>
       <td>{{ data.authors?.join('') }}</td>
       <td>{{ data.numberOfPages }}</td>

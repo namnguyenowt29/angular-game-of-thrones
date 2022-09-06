@@ -56,8 +56,18 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of basicTable.data">
-      <td>{{ data.aliases?.join(',') }}</td>
+    <tr
+      *ngFor="let data of basicTable.data"
+      (click)="onClickCharacter(data.url)"
+      class="table-body-item"
+    >
+      <td>
+        <ul>
+          <li *ngFor="let item of data.aliases">
+            {{ item }}
+          </li>
+        </ul>
+      </td>
       <td>{{ data.name }}</td>
       <td>{{ data.gender }}</td>
       <td>{{ data.culture }}</td>

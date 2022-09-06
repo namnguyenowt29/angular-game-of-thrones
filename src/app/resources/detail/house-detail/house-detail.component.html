@@ -1,0 +1,31 @@
+<nz-list>
+  <nz-list-item> <b>Name: </b> {{ house.name }} </nz-list-item>
+  <nz-list-item>
+    <b>Ancestral weapons: </b>
+    <ul>
+      <li *ngFor="let item of house.ancestralWeapons">
+        {{ item }}
+      </li>
+    </ul>
+  </nz-list-item>
+  <nz-list-item><b>Coat of arms: </b>{{ house.coatOfArms }} </nz-list-item>
+  <nz-list-item><b>Died out: </b>{{ house.diedOut }} </nz-list-item>
+  <nz-list-item><b>Founded: </b>{{ house.founded }} </nz-list-item>
+  <nz-list-item><b>Region: </b>{{ house.region }} </nz-list-item>
+  <nz-list-item
+    ><b>Seats: </b>
+    <ul>
+      <li *ngFor="let item of house.seats">
+        {{ item }}
+      </li>
+    </ul>
+  </nz-list-item>
+  <nz-list-item
+    ><b>Titles: </b>
+    <ul>
+      <li *ngFor="let item of house.titles">
+        {{ item }}
+      </li>
+    </ul>
+  </nz-list-item>
+</nz-list>
