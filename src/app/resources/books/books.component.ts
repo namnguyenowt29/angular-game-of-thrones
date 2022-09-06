@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/common/api.service';
 import { BOOK_LAST_PAGE } from 'src/assets/constants';
 import { BookModel } from '../models/book.model';
+import { ResourcesService } from '../resources.service';
 
 @Component({
   selector: 'app-books',
@@ -20,7 +21,11 @@ export class BooksComponent implements OnInit {
   date!: Date;
   dateForm!: FormGroup;
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    private resourceService: ResourcesService
+  ) {}
   ngOnInit(): void {
     this.dateForm = new FormGroup({
       from: new FormControl(null),
@@ -33,6 +38,12 @@ export class BooksComponent implements OnInit {
     this.searchParams = this.searchParams.append('toReleaseDate', '');
     this.onFetchBooks();
   }
+  //see book detail
+  onClickBook(bookUrl: string | undefined) {
+    const path = this.resourceService.getResourcesValues(bookUrl);
+    this.router.navigate([`/${path.type}/${path.id}`]);
+  }
+
   //submit date form
   onSubmitDate() {
     const fromDate = new Date(this.dateForm.value.from);

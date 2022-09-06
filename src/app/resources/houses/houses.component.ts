@@ -9,6 +9,7 @@ import {
   HOUSE_LAST_PAGE,
 } from 'src/assets/constants';
 import { HouseModel } from '../models/house.model';
+import { ResourcesService } from '../resources.service';
 
 @Component({
   selector: 'app-houses',
@@ -25,7 +26,11 @@ export class HousesComponent implements OnInit {
   textFilters = houseTextFilters;
   checkboxFilters = houseCheckboxFilters;
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(
+    private resourceService: ResourcesService,
+    private apiService: ApiService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.houseFilterForm = new FormGroup({
       houseTextFilter: new FormGroup({
@@ -42,6 +47,12 @@ export class HousesComponent implements OnInit {
     });
     this.searchParams = this.searchParams.append('page', this.pageIndex);
     this.onFetchHouse(this.searchParams);
+  }
+
+  //see house detail
+  onClickHouse(houseUrl: string | undefined) {
+    const path = this.resourceService.getResourcesValues(houseUrl);
+    this.router.navigate([`/${path.type}/${path.id}`]);
   }
 
   handleFieldChange(currentField: { title: string; value: boolean }) {

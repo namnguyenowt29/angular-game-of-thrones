@@ -1,0 +1,38 @@
+<nz-list>
+  <nz-list-item> <b>Name: </b> {{ character.name }} </nz-list-item>
+  <nz-list-item>
+    <b>Aliases: </b>
+    <ul>
+      <li *ngFor="let item of character.aliases">
+        {{ item }}
+      </li>
+    </ul>
+  </nz-list-item>
+  <nz-list-item><b>Born: </b>{{ character.born }} </nz-list-item>
+  <nz-list-item><b>Culture: </b>{{ character.culture }} </nz-list-item>
+  <nz-list-item><b>Died: </b>{{ character.died }} </nz-list-item>
+
+  <nz-list-item><b>Gender: </b>{{ character.gender }} </nz-list-item>
+  <nz-list-item
+    ><b>Played by: </b>{{ character.playedBy?.join('') }}
+  </nz-list-item>
+  <nz-list-item
+    ><b>Titles: </b>
+    <ul>
+      <li *ngFor="let item of character.titles">
+        {{ item }}
+      </li>
+    </ul>
+  </nz-list-item>
+  <nz-list-item
+    ><b>TV series: </b>
+    <ul>
+      <li *ngFor="let item of character.tvSeries">
+        {{ item }}
+      </li>
+    </ul>
+  </nz-list-item>
+  <!-- <nz-list-item><b>Spouse: </b>{{ character.spouse }} </nz-list-item> -->
+  <!-- <nz-list-item><b>Father: </b>{{ character.father }} </nz-list-item> -->
+  <!-- <nz-list-item><b>Mother: </b>{{ character.mother }} </nz-list-item> -->
+</nz-list>

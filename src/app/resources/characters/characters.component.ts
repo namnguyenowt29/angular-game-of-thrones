@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/common/api.service';
 import { characterFilters, CHARACTER_LAST_PAGE } from 'src/assets/constants';
 import { CharacterModel } from '../models/character.model';
+import { ResourcesService } from '../resources.service';
 
 @Component({
   selector: 'app-characters',
@@ -20,7 +21,11 @@ export class CharactersComponent implements OnInit {
   //open - close modal
   isVisible = false;
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    private resourceService: ResourcesService
+  ) {}
   ngOnInit(): void {
     this.characterFilterForm = new FormGroup({
       characterTextFilters: new FormGroup({
@@ -32,6 +37,12 @@ export class CharactersComponent implements OnInit {
       isAlive: new FormControl({ value: null, disabled: false }),
     });
     this.onFetchCharacters();
+  }
+
+  //see character detail
+  onClickCharacter(characterUrl: string | undefined) {
+    const path = this.resourceService.getResourcesValues(characterUrl);
+    this.router.navigate([`/${path.type}/${path.id}`]);
   }
 
   handleFieldChange(currentField: { title: string; value: boolean }) {

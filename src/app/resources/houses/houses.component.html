@@ -59,11 +59,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of basicTable.data">
+    <tr
+      *ngFor="let data of basicTable.data"
+      (click)="onClickHouse(data.url)"
+      class="table-body-item"
+    >
       <td>{{ data.name }}</td>
       <td>{{ data.coatOfArms }}</td>
       <td>{{ data.region }}</td>
-      <td>{{ data.titles?.join(' - ') }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let item of data.titles">{{ item }}</li>
+        </ul>
+      </td>
     </tr>
   </tbody>
 </nz-table>

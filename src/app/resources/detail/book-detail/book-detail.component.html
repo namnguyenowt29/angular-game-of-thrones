@@ -1,0 +1,25 @@
+<nz-list>
+  <nz-list-item> <b>Name: </b> {{ book.name }} </nz-list-item>
+  <nz-list-item>
+    <b>Authors: </b>
+    <ul>
+      <li *ngFor="let item of book.authors">
+        {{ item }}
+      </li>
+    </ul>
+  </nz-list-item>
+  <nz-list-item><b>Country: </b>{{ book.country }} </nz-list-item>
+  <nz-list-item><b>Media type: </b>{{ book.mediaType }}</nz-list-item>
+  <nz-list-item><b>ISBN: </b>{{ book.isbn }}</nz-list-item>
+  <nz-list-item><b>Number of pages: </b> {{ book.numberOfPages }}</nz-list-item>
+  <nz-list-item><b>Publisher: </b> {{ book.publisher }}</nz-list-item>
+  <nz-list-item
+    ><b>Released: </b> {{ book.released | date: 'medium' }}</nz-list-item
+  >
+  <nz-list-item>
+    <b>Characters: ({{ book.characters?.length }})</b>
+  </nz-list-item>
+  <nz-list-item>
+    <b>Pov characters: ({{ book.povCharacters?.length }})</b>
+  </nz-list-item>
+</nz-list>

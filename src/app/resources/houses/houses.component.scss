@@ -1,5 +1,8 @@
 nz-table {
   border: 1px solid gainsboro;
+  & .table-body-item {
+    cursor: pointer;
+  }
 }
 
 .pagination-center {

@@ -13,6 +13,7 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzListModule } from 'ng-zorro-antd/list';
 
 @NgModule({
   exports: [
@@ -30,6 +31,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
     NzModalModule,
     NzSelectModule,
     NzCardModule,
+    NzListModule,
   ],
 })
 export class NgZorroModule {}

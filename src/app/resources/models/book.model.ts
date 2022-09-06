@@ -6,8 +6,8 @@ export interface BookModel {
   authors?: string[];
   publisher?: string;
   country?: string;
-  mediaType: string;
+  mediaType?: string;
   released?: Date;
-  characters: string[];
-  povCharacters: string[];
+  characters?: string[];
+  povCharacters?: string[];
 }
