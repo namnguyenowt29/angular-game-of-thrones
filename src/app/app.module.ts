@@ -17,7 +17,6 @@ import { AuthService } from './auth/auth.service';
 import { BooksComponent } from './resources/books/books.component';
 import { HousesComponent } from './resources/houses/houses.component';
 import { CharactersComponent } from './resources/characters/characters.component';
-import { ResourcesComponent } from './resources/resources.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './common/api.service';
 
@@ -25,9 +24,10 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { SearchResultComponent } from './resources/search-result/search-result.component';
-import { CharacterListComponent } from './common/character-list/character-list.component';
-import { BookListComponent } from './common/book-list/book-list.component';
-import { HouseListComponent } from './common/house-list/house-list.component';
+import { BookListComponent } from './resources/search-result/book-list/book-list.component';
+import { CharacterListComponent } from './resources/search-result/character-list/character-list.component';
+import { HouseListComponent } from './resources/search-result/house-list/house-list.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 registerLocaleData(en);
 
@@ -43,11 +43,11 @@ const icons: IconDefinition[] = [MenuOutline, FilterOutline];
     BooksComponent,
     HousesComponent,
     CharactersComponent,
-    ResourcesComponent,
     SearchResultComponent,
     CharacterListComponent,
     BookListComponent,
     HouseListComponent,
+    ResourcesComponent,
   ],
   imports: [
     BrowserModule,

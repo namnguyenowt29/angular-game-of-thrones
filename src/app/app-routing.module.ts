@@ -9,10 +9,10 @@ import { ResourcesComponent } from './resources/resources.component';
 import { SearchResultComponent } from './resources/search-result/search-result.component';
 
 const routes: Routes = [
-  { path: 'overview', component: HomeComponent },
-  { path: '', redirectTo: 'overview', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'result', component: SearchResultComponent },
+  {
+    path: '',
+    component: HomeComponent,
+  },
   {
     path: '',
     component: ResourcesComponent,
@@ -31,7 +31,9 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: 'overview' },
+  { path: 'login', component: LoginComponent },
+  { path: 'result', component: SearchResultComponent },
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
 @NgModule({
