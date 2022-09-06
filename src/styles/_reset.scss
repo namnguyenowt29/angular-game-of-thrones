@@ -36,3 +36,9 @@ select {
   border: none;
   font: inherit;
 }
+
+input[type='checkbox'] {
+  vertical-align: middle;
+  scale: 1.5;
+  margin-right: 5px;
+}

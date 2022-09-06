@@ -24,9 +24,10 @@
         *ngFor="let textFilter of textFilters"
         formGroupName="houseTextFilter"
       >
-        <label nz-checkbox (change)="handleFieldChange(textFilter)">{{
-          textFilter.title
-        }}</label>
+        <label>
+          <input type="checkbox" (change)="handleFieldChange(textFilter)" />
+          {{ textFilter.title }}
+        </label>
         <input
           *ngIf="textFilter.value"
           type="text"
@@ -34,15 +35,15 @@
           [formControlName]="textFilter.title"
         />
       </div>
-      <!--  -->
       <div
         class="filter-item"
         *ngFor="let checkboxFilter of checkboxFilters"
         formGroupName="houseCheckboxFilter"
       >
-        <label [formControlName]="checkboxFilter.title" nz-checkbox>{{
-          checkboxFilter.title
-        }}</label>
+        <label>
+          <input type="checkbox" [formControlName]="checkboxFilter.title" />
+          {{ checkboxFilter.title }}</label
+        >
       </div>
     </form>
   </ng-container>
