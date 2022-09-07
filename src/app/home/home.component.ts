@@ -11,9 +11,8 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    // use this code, after finish the test
-    // if (!this.authService.isLogin) {
-    //   this.router.navigate(['/login']);
-    // }
+    if (!this.authService.isLogin) {
+      this.router.navigate(['/login']);
+    }
   }
 }
