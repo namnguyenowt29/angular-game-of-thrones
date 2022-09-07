@@ -1,0 +1,12 @@
+<app-main-template>
+  <app-character-results
+    *ngIf="resourceType === 'characters'"
+    [characters]="resource"
+  ></app-character-results>
+  <app-book-results
+    *ngIf="resourceType === 'books'"
+    [books]="resource"
+  ></app-book-results>
+  <app-house-results *ngIf="resourceType === 'houses'" [houses]="resource">
+  </app-house-results>
+</app-main-template>
