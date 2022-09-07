@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { HomeComponent } from './home/home.component';
-import { BooksComponent } from './resources/books/books.component';
-import { CharactersComponent } from './resources/characters/characters.component';
-import { BookDetailComponent } from './resources/detail/book-detail/book-detail.component';
-import { CharacterDetailComponent } from './resources/detail/character-detail/character-detail.component';
-import { DetailComponent } from './resources/detail/detail.component';
-import { HouseDetailComponent } from './resources/detail/house-detail/house-detail.component';
-import { HousesComponent } from './resources/houses/houses.component';
-import { ResourcesComponent } from './resources/resources.component';
-import { SearchResultComponent } from './resources/search-result/search-result.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { DetailComponent } from './pages/detail/detail.component';
+import { ResourcesComponent } from './pages/resources/resources.component';
+import { BookDetailComponent } from './components/detail/book-detail/book-detail.component';
+import { CharacterDetailComponent } from './components/detail/character-detail/character-detail.component';
+import { HouseDetailComponent } from './components/detail/house-detail/house-detail.component';
+
+import { BooksComponent } from './components/books/books.component';
+import { CharactersComponent } from './components/characters/characters.component';
+import { HousesComponent } from './components/houses/houses.component';
+import { SearchResultComponent } from './pages/search-result/search-result.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: '',
+    path: '', // each resources table
     component: ResourcesComponent,
     children: [
       {
@@ -38,7 +39,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'result', component: SearchResultComponent },
   {
-    path: '',
+    path: '', // detail of resource item
     component: DetailComponent,
     children: [
       { path: 'books/:bookId', component: BookDetailComponent },

@@ -1,0 +1,11 @@
+<div class="house-container">
+  <nz-card nzTitle="House information" *ngFor="let house of houses">
+    <p><b>Name: </b> {{ house.name }}</p>
+    <p><b>Region: </b> {{ house.region }}</p>
+    <p><b>Coat of arms: </b> {{ house.coatOfArms }}</p>
+    <p><b>Words: </b> {{ house.words }}</p>
+    <p><b>Title: </b> {{ house.titles?.join(' - ') }}</p>
+    <p><b>Founded: </b> {{ house.founded }}</p>
+    <p><b>Ancestral Weapons: </b> {{ house.ancestralWeapons?.join(' - ') }}</p>
+  </nz-card>
+</div>
